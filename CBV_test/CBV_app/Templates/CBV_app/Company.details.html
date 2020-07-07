@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'CBV_app/base.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Company Details: </h1>
+            <h2>NAME: {{ comp_det.name }}</h2>
+            <h2>LOCATION: {{ comp_det.location }}</h2>
+            <h2>DOMAIN: {{ comp_det.Domain }}</h2>
+
+            {% for det in comp_det.Employees.all %}
+                <h2>NAME: {{det.name}}</h2>
+                <h2>AGE: {{det.age}}</h2>
+                <h2>COMPANY: {{det.company}}</h2>
+            {% endfor %}
+            <a href="{% url 'CBV_app:update' pk=comp_det.pk %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'CBV_app:delete' pk=comp_det.pk %}" class='btn btn-danger'>Delete</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'CBV_app/base.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Update">
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
